@@ -10,30 +10,52 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'login_code', 'detail_id','role_id','point_now','point_used','is_login','status','last_login','last_logout'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function role() {
+        return $this->belongsTo('App\Role');
+    }
+
+    public function games(){
+        return $this->hasOne('App\Game');
+    }
+
+    public function detail(){
+        return $this->belongsTo('App\Detail');
+    }
+
+    public function quiz_play(){
+        return $this->belongsToMany('App\QuizPlay');
+    }
+
+    public function photo_play(){
+        return $this->belongsTo('App\PhotoPlay');
+    }
+
+    public function isAdmin(){ // admin
+        if ($this->role->name == 'Admin' && $this->status == 'E' && $this->is_login = '1'){
+            return true;
+        }
+        return false;
+    }
+
+    public function isLiaison(){ // LO
+        if ($this->role->name == 'Liaison' && $this->status == 'E' && $this->is_login = '1'){
+            return true;
+        }
+        return false;
+    }
+
+    public function isParticipant(){ // participant
+        if ($this->role->name == 'Participant' && $this->status == 'E' && $this->is_login = '1'){
+            return true;
+        }
+        return false;
+    }
 }
