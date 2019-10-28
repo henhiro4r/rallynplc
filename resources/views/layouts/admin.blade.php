@@ -54,9 +54,49 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-
         $("#qrs").change(function() {
             readURL(this);
+        });
+
+        function readURL2(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#qrcode2').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#qrs2").change(function() {
+            readURL2(this);
+        });
+
+        $(function(){
+            $("select#role").change(function(){
+                $(this).find("option:selected").each(function(){
+                    if ($(this).attr("value") === '3') {
+                        $("#sch").show();
+                        $("#cty").show();
+                        $("#address").show();
+                        $("#coach").show();
+                        document.getElementById("schid").required = true;
+                        document.getElementById("ctyid").required = true;
+                        document.getElementById("addressid").required = true;
+                        document.getElementById("coachid").required = true;
+                    } else {
+                        $("#sch").hide();
+                        $("#cty").hide();
+                        $("#address").hide();
+                        $("#coach").hide();
+                        document.getElementById("schid").required = false;
+                        document.getElementById("ctyid").required = false;
+                        document.getElementById("addressid").required = false;
+                        document.getElementById("coachid").required = false;
+                    }
+                })
+            }).change();
         });
     </script>
 </body>

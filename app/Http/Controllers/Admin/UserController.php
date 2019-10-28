@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,7 +44,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $pages = 'uadd';
+        $roles = Role::all();
+        return view('admin.user.crud.add', compact('pages', 'roles'));
     }
 
     /**

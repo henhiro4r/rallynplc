@@ -7,6 +7,7 @@ use App\Game;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GameController extends Controller
 {
@@ -18,7 +19,13 @@ class GameController extends Controller
     public function index()
     {
         $games = Game::all();
-        $los = User::all()->where('role_id', 2);
+        $los = DB::table('users')
+            ->join('details', 'users.detail_id', '=', 'details.id')
+            ->where('users.role_id', '=', 2)
+            ->where('details.other', '=', '-')
+            ->select('users.name', 'users.id')->get();
+//        $los = User::select(DB::raw('SELECT * FROM users WHERE detail_id = (SELECT id FROM details WHERE other = "-") AND role_id = 2'));
+//        $los = User::all()->where('role_id', 2);
         $pages = 'glist';
         return view('admin.game.index', compact('pages', 'games', 'los'));
     }

@@ -10,7 +10,7 @@
             <!-- Modal body -->
             <div class="modal-body" style="text-align: left;">
                 <div class="text-center py-2">
-                    <img src="{{asset('images/'.$game->qr_code)}}" height="250" class="img-profile" id="qrcode">
+                    <img src="{{asset('images/'.$game->qr_code)}}" height="250" class="img-profile" id="qrcode2">
                 </div>
                 <form action="{{route ('games.update', $game->id)}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group d-flex flex-column">
                         <label for="qr">Qr Code</label>
-                        <input name="qr_code" type="file" id="qrs">
+                        <input name="qr_code" type="file" id="qrs2">
                     </div>
                     <div class="form-group">
                         <label>Select PIC</label>
