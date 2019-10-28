@@ -37,11 +37,11 @@
                         </div>
                         <div class="form-group" id="sch">
                             <label for="school">School Name</label>
-                            <input id="schid" type="text" name="school" class="form-control" placeholder="School Name...">
+                            <input id="schid" type="text" name="school_name" class="form-control" placeholder="School Name...">
                         </div>
                         <div class="form-group" id="cty">
                             <label for="city">City Name</label>
-                            <input id="ctyid" type="text" name="city" class="form-control" placeholder="City Name...">
+                            <input id="ctyid" type="text" name="city_name" class="form-control" placeholder="City Name...">
                         </div>
                         <div class="form-group" id="address">
                             <label for="address">School Address</label>
@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group" id="coach">
                             <label for="coach">Coach Name</label>
-                            <input id="coachid" name="coach" class="form-control" placeholder="Coach Name...">
+                            <input id="coachid" name="coach_name" class="form-control" placeholder="Coach Name...">
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Create New User</button>

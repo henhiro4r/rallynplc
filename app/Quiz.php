@@ -9,4 +9,8 @@ class Quiz extends Model
     protected $fillable = [
         'title','question','answer'
     ];
+
+    public function quizplay() {
+        return $this->hasMany('App\QuizPlay');
+    }
 }

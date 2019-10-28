@@ -20,6 +20,7 @@
                         <th>Id</th>
                         <th>Title</th>
                         <th>Type</th>
+                        <th>Code</th>
                         <th>Qr Code</th>
                         <th>PIC</th>
                         <th>Location</th>
@@ -32,6 +33,7 @@
                             <td>{{$game->id}}</td>
                             <td><a href="{{route('games.show', $game->id)}}">{{ucwords($game->title)}}</a></td>
                             <td>@if($game->type == 'S') <p class="text-success">Single</p> @else <p class="text-primary">Versus</p> @endif </td>
+                            <td>{{$game->code}}</td>
                             <td><button class="btn btn-info" title="Show QR Code" type="button" data-toggle="modal" data-target="#qrModal-{{$game->id}}">Show QR Code</button>
                                 @include('admin.game.qrcode')
                             </td>

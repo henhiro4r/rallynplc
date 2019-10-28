@@ -42,7 +42,7 @@
                                             <div class="col-md-4">
                                                 <button class="btn btn-info btn-circle" title="Details User" type="button" data-toggle="modal"
                                                         data-target="#editModal-{{$user->id}}"><i class="fas fa-edit"></i></button>
-                                                @include('admin.user.crud.edit')
+                                                @include('admin.user.crud.editModal')
                                             </div>
 {{--                                            @endif--}}
                                             <div class="col-md-4">

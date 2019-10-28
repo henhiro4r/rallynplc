@@ -14,7 +14,8 @@ class QuizController extends Controller
      */
     public function index()
     {
-        //
+        $pages = 'qlist';
+        return view('admin.quiz.index', compact('pages'));
     }
 
     /**

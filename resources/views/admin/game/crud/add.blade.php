@@ -25,6 +25,10 @@
                             <option value="V">Versus</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label>Code</label>
+                        <input type="text" name="code" class="form-control" placeholder="Code in QR Code..." required>
+                    </div>
                     <div class="form-group d-flex flex-column">
                         <label for="qr">Qr Code</label>
                         <input name="qr_code" type="file" id="qrs">

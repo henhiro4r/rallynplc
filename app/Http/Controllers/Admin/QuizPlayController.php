@@ -14,7 +14,8 @@ class QuizPlayController extends Controller
      */
     public function index()
     {
-        //
+        $pages = 'qhis';
+        return view('admin.quiz.history', compact('pages'));
     }
 
     /**

@@ -1,42 +1,52 @@
-<!-- The Modal -->
-<div class="modal fade" id="editModal-{{$user->id}}">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Edit Team {{$user->name}} Details</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+@extends('layouts.admin')
+@section('content')
+    <div class="container-fluid">
+        <!-- Content Row -->
+        @include('inc.alert')
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h1 class="h4 mb-0 font-weight-bold text-primary">Edit {{$user->role->name .' '. $user->name}}</h1>
             </div>
-            <!-- Modal body -->
-            <div class="modal-body" style="text-align: left;">
-                <form method="POST" action="{{ route('users.update', $user->id) }}">
-                    {{ csrf_field() }}
-                    <input name="_method" type="hidden" value="PATCH">
-                    <div class="form-group">
-                        <label for="school">School Name</label>
-                        <input type="text" name="school" class="form-control" value="{{$user->detail->school_name}}" placeholder="School Name...">
-                    </div>
-                    <div class="form-group">
-                        <label for="city">City Name</label>
-                        <input type="text" name="city" class="form-control" value="{{$user->detail->city_name}}" placeholder="City Name...">
-                    </div>
-                    <div class="form-group">
-                        <label for="address">School Address</label>
-                        <textarea name="address" class="form-control" placeholder="School address..." rows="3" style="resize: none;">{{$user->detail->address}}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="coach">Coach Name</label>
-                        <input type="text" name="coach" class="form-control" value="{{$user->detail->coach_name}}" placeholder="Coach Name...">
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Edit Details</button>
-                    </div>
-                </form>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            <div class="card body">
+                <div class="col-md-12" style="margin-top: 1em;">
+                    <form action="{{ route('users.update', $user->id) }}" method="post">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="PATCH">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="name" class="form-control" value="{{$user->name}}">
+                        </div>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" name="username" class="form-control" value="{{$user->username}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Password...">
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" name="password_confirmation" class="form-control" placeholder="Retype Password...">
+                        </div>
+                        @if($user->role_id == 2)
+                            <div class="form-group" id="coach">
+                                <label>PIC of Game</label>
+                                <input name="other" class="form-control" value="{{$detail->other}}">
+                            </div>
+                        @endif
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Edit User</button>
+                            @if($user->role_id == 1)
+                                <a class="btn btn-danger" href="{{route('user.admin')}}">Cancel</a>
+                            @elseif($user->role_id == 2)
+                                <a class="btn btn-danger" href="{{route('user.liaison')}}">Cancel</a>
+                            @elseif($user->role_id == 3)
+                                <a class="btn btn-danger" href="{{route('user.participant')}}">Cancel</a>
+                            @endif
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+@endsection

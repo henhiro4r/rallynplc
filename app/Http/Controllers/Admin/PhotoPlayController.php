@@ -14,7 +14,8 @@ class PhotoPlayController extends Controller
      */
     public function index()
     {
-        //
+        $pages = 'phis';
+        return view('admin.photo.history', compact('pages'));
     }
 
     /**

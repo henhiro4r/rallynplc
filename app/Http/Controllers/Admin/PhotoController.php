@@ -14,7 +14,8 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        //
+        $pages = 'plist';
+        return view('admin.photo.index', compact('pages'));
     }
 
     /**

@@ -27,9 +27,9 @@ Route::group(['middleware' => 'admin'], function (){
 
     Route::resource('admin/users', 'Admin\UserController');
     Route::resource('admin/games', 'Admin\GameController');
-    Route::resource('admin/games/history', 'Admin\HistoryController');
+    Route::resource('admin/history', 'Admin\HistoryController');
     Route::resource('admin/quiz', 'Admin\QuizController');
-    Route::resource('admin/quiz/historyQuiz', 'Admin\QuizPlayController');
+    Route::resource('admin/historyQuiz', 'Admin\QuizPlayController');
     Route::resource('admin/photo', 'Admin\PhotoController');
-    Route::resource('admin/photo/historyPhoto', 'Admin\PhotoPlayController');
+    Route::resource('admin/historyPhoto', 'Admin\PhotoPlayController');
 });

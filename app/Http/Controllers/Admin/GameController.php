@@ -63,7 +63,8 @@ class GameController extends Controller
            'type' => $input['type'],
            'qr_code' => $input['qr_code'],
            'liaison_id' => $input['liaison_id'],
-           'location' => $input['location']
+           'location' => $input['location'],
+           'code' => $input['code']
         ]);
         $lo = User::findOrFail($input['liaison_id']);
         $det = Detail::findOrFail($lo->detail_id);

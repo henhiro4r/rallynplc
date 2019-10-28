@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\History;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class HistoryController extends Controller
      */
     public function index()
     {
-        //
+        $pages = 'ghis';
+        $historys = History::all();
+        return view('admin.game.history', compact('pages', 'historys'));
     }
 
     /**
