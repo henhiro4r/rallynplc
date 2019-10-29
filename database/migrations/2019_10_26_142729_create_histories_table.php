@@ -18,7 +18,7 @@ class CreateHistoriesTable extends Migration
             $table->bigInteger('game_id');
             $table->bigInteger('teamA');
             $table->enum('resultA', ['W', 'L', 'D'])->default('W')->comment('Win, Lose, Draw')->nullable();
-            $table->bigInteger('teamB');
+            $table->bigInteger('teamB')->nullable();
             $table->enum('resultB', ['W', 'L', 'D'])->default('W')->comment('Win, Lose, Draw')->nullable();
             $table->enum('is_done', ['0','1'])->default('0')->comment('0 = no, 1 = yes');
             $table->timestamps();
