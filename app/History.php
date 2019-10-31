@@ -13,4 +13,9 @@ class History extends Model
     public function game(){
         return $this->belongsTo('App\Game');
     }
+
+    public function teamName(int $id) {
+        $user = User::findOrFail($id);
+        return $user->name;
+    }
 }

@@ -4,13 +4,13 @@
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Edit Game {{$game->title}}</h4>
+                <h4 class="modal-title">Edit Game - {{$game->title}}</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body -->
             <div class="modal-body" style="text-align: left;">
                 <div class="text-center py-2">
-                    <img src="{{asset('images/'.$game->qr_code)}}" height="250" class="img-profile" id="qrcode2">
+                    <img src="{{asset('images/games/'.$game->qr_code)}}" height="250" class="img-profile" id="qrcode2">
                 </div>
                 <form action="{{route ('games.update', $game->id)}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
@@ -37,6 +37,7 @@
                     <div class="form-group">
                         <label>Select PIC</label>
                         <select name="liaison_id" class="custom-select">
+                            <option value="{{$game->user->id}}" selected>{{$game->user->name}}</option>
                             @foreach($los as $lo)
                                 <option value="{{$lo->id}}">{{$lo->name}}</option>
                             @endforeach

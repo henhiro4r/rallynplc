@@ -54,7 +54,8 @@ class GameController extends Controller
             $tmp = str_replace(" ", "-",$request->title);
             $type = $file->getClientOriginalExtension();
             $name = $tmp."_qrCode.".$type;
-            $file->move('images', $name);
+            $file->move('images/game', $name);
+//            $file->storeAs('images/game', $name);
 //            dd($a);
             $input['qr_code'] = $name;
         }
@@ -97,7 +98,9 @@ class GameController extends Controller
      */
     public function show($id)
     {
-        //
+        $game = Game::findOrFail($id);
+        $pages = 'ghis';
+        return view('admin.game.show', compact('game', 'pages'));
     }
 
     /**
@@ -127,7 +130,7 @@ class GameController extends Controller
             $tmp = str_replace(" ", "-",$request->title);
             $type = $file->getClientOriginalExtension();
             $name = $tmp."_qrCode.".$type;
-            $file->move('images', $name);
+            $file->move('images/games', $name);
             $input['qr_code'] = $name;
         }
         $game->update($input);
@@ -145,6 +148,6 @@ class GameController extends Controller
         $game = Game::find($id);
         $name = $game->title;
         $game->delete();
-        return redirect()->back()->with('Success', 'Voucher '.$name.' deleted');
+        return redirect()->back()->with('Success', 'Game '.$name.' deleted');
     }
 }

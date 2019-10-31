@@ -49,7 +49,7 @@
 
                 reader.onload = function(e) {
                     $('#qrcode').attr('src', e.target.result);
-                }
+                };
 
                 reader.readAsDataURL(input.files[0]);
             }
@@ -64,13 +64,43 @@
 
                 reader.onload = function(e) {
                     $('#qrcode2').attr('src', e.target.result);
-                }
+                };
 
                 reader.readAsDataURL(input.files[0]);
             }
         }
         $("#qrs2").change(function() {
             readURL2(this);
+        });
+
+        function readURL3(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#photos').attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#ppt").change(function() {
+            readURL3(this);
+        });
+
+        function readURL4(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#photos2').attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#ppt2").change(function() {
+            readURL4(this);
         });
 
         $(function(){

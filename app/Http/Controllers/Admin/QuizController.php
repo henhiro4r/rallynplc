@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Quiz;
 use Illuminate\Http\Request;
 
 class QuizController extends Controller
@@ -15,7 +16,8 @@ class QuizController extends Controller
     public function index()
     {
         $pages = 'qlist';
-        return view('admin.quiz.index', compact('pages'));
+        $quizzes = Quiz::all();
+        return view('admin.quiz.index', compact('pages', 'quizzes'));
     }
 
     /**
@@ -36,7 +38,8 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Quiz::create($request->all());
+        return redirect()->back()->with('Success', 'Added new quiz');
     }
 
     /**
@@ -70,7 +73,9 @@ class QuizController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $quiz = Quiz::findOrfail($id);
+        $quiz->update($request->all());
+        return redirect()->back()->with('Success', 'Quiz '.$quiz->title.' updated');
     }
 
     /**
@@ -81,6 +86,9 @@ class QuizController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $q = Quiz::findOrFail($id);
+        $name = $q->title;
+        $q->delete();
+        return redirect()->back()->with('Success', 'Quiz '.$name.' deleted');
     }
 }

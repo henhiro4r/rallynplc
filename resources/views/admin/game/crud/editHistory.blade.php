@@ -19,17 +19,17 @@
                     <div class="form-group">
                         <label for="type">Result Team A</label>
                         <select name="resultA" class="custom-select">
-                            <option value="W">Win</option>
-                            <option value="L">Lose</option>
-                            <option value="D">Draw</option>
+                            <option value="W" {{$history->resultA == 'W' ? 'selected' : ''}}>Win</option>
+                            <option value="L" {{$history->resultA == 'L' ? 'selected' : ''}}>Lose</option>
+                            <option value="D" {{$history->resultA == 'D' ? 'selected' : ''}}>Draw</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="type">Result Team B</label>
                         <select name="resultB" class="custom-select">
-                            <option value="W">Win</option>
-                            <option value="L">Lose</option>
-                            <option value="D">Draw</option>
+                            <option value="W" {{$history->resultB == 'W' ? 'selected' : ''}}>Win</option>
+                            <option value="L" {{$history->resultB == 'L' ? 'selected' : ''}}>Lose</option>
+                            <option value="D" {{$history->resultB == 'D' ? 'selected' : ''}}>Draw</option>
                         </select>
                     </div>
                     <div class="form-group">

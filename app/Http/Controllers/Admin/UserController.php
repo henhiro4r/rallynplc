@@ -67,13 +67,12 @@ class UserController extends Controller
             $detail = Detail::create(['other' => '-']);
             $input['detail_id'] = $detail->id;
             $this->new($input);
-            return redirect()->route('user.admini')->with('Success', 'Added new participant');
+            return redirect()->route('user.admin')->with('Success', 'Added new administrator');
         } else if ($ids == 2){
             $detail = Detail::create(['other' => '-']);
             $input['detail_id'] = $detail->id;
             $this->new($input);
-            return redirect()->route('user.liaison')->with('Success', 'Added new participant');
-
+            return redirect()->route('user.liaison')->with('Success', 'Added new liaison officer');
         } else if ($ids == 3){
             $detail = Detail::create([
                 'school_name' => $input['school_name'],
@@ -115,7 +114,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $pages = 'ghis';
+        return view('admin.user.show', compact('user', 'pages'));
     }
 
     /**
@@ -131,15 +132,15 @@ class UserController extends Controller
             case 1:
                 $pages = 'uadm';
                 $detail = Detail::findOrFail($user->detail_id);
-                return view('admin.user.crud.edit', compact('pages', 'user','detail'));
+                return view('admin.user.crud.editUser', compact('pages', 'user','detail'));
             case 2:
                 $pages = 'ulo';
                 $detail = Detail::findOrFail($user->detail_id);
-                return view('admin.user.crud.edit', compact('pages', 'user','detail'));
+                return view('admin.user.crud.editUser', compact('pages', 'user','detail'));
             case 3:
                 $pages = 'upar';
                 $detail = Detail::findOrFail($user->detail_id);
-                return view('admin.user.crud.edit', compact('pages', 'user', 'detail'));
+                return view('admin.user.crud.editUser', compact('pages', 'user', 'detail'));
             default:
                 return redirect()->back();
         }

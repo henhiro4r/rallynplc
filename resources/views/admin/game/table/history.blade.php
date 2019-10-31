@@ -25,13 +25,13 @@
                         <tr class="text-center">
                             <td>{{$history->id}}</td>
                             <td>{{$history->game_id}}</td>
-                            <td>{{$history->game->title}}</td>
+                            <td><a href="{{route('games.show', $history->game_id)}}">{{$history->game->title}}</a></td>
                             <td>@if($history->game->type == 'S') <p class="text-success">Single</p> @else <p class="text-primary">Versus</p> @endif </td>
-                            <td>{{$history->teamA}}</td>
+                            <td><a href="{{ route('users.show', $history->teamA)}}">{{$history->teamName($history->teamA)}}</a></td>
                             <td>{{$history->resultA}}</td>
-                            <td>{{$history->teamB}}</td>
+                            <td><a href="{{ route('users.show', $history->teamB)}}">{{$history->teamName($history->teamB)}}</a></td>
                             <td>{{$history->resultB}}</td>
-                            <td>@if($history->is_done == '0') <p class="text-success">Playing</p> @else <p class="text-primary">Finished</p> @endif </td>
+                            <td>@if($history->is_done == '0') <p class="text-warning">Playing</p> @else <p class="text-success">Finished</p> @endif </td>
                             <td width="150px">
                                 <div class="row no-gutters">
                                     <div class="col-md-6">

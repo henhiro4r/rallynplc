@@ -2,55 +2,47 @@
     <div class="card-header py-3">
         <div class="row no-gutters">
             <div class="col md-10">
-                <h1 class="h4 mb-0 font-weight-bold text-primary" style="margin-top: 0.2em;">Game List</h1>
+                <h1 class="h4 mb-0 font-weight-bold text-primary" style="margin-top: 0.2em;">Quiz List</h1>
             </div>
             <div class="col md-2">
                 <button type="button" class="btn btn-dark btn-circle float-right" title="Add New Game" data-toggle="modal"
                         data-target="#addmodal"><i class="fas fa-plus-circle"></i></button>
-                @include('admin.game.crud.add')
+                @include('admin.quiz.crud.add')
             </div>
         </div>
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            @if(count($games) > 0)
+            @if(count($quizzes) > 0)
                 <table class="table table-bordered" id="table" width="100%" cellspacing="0">
                     <thead>
                     <tr class="text-center">
                         <th>Id</th>
                         <th>Title</th>
-                        <th>Type</th>
-                        <th>Code</th>
-                        <th>Qr Code</th>
-                        <th>PIC</th>
-                        <th>Location</th>
+                        <th>Question</th>
+                        <th>Answer</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($games as $game)
+                    @foreach($quizzes as $quiz)
                         <tr class="text-center">
-                            <td>{{$game->id}}</td>
-                            <td>{{ucwords($game->title)}}</td>
-                            <td>@if($game->type == 'S') <p class="text-success">Single</p> @else <p class="text-primary">Versus</p> @endif </td>
-                            <td>{{$game->code}}</td>
-                            <td><button class="btn btn-info" title="Show QR Code" type="button" data-toggle="modal" data-target="#qrModal-{{$game->id}}">Show QR Code</button>
-                                @include('admin.game.qrcode')
-                            </td>
-                            <td>{{ucwords($game->user->name)}}</td>
-                            <td>{{ucwords($game->location)}}</td>
+                            <td>{{$quiz->id}}</td>
+                            <td>{{ucwords($quiz->title)}}</td>
+                            <td>{{$quiz->question}}</td>
+                            <td>{{$quiz->answer}}</td>
                             <td width="150px">
                                 <div class="row no-gutters">
                                     <div class="col-md-6">
                                         <button class="btn btn-info btn-circle" title="Edit Game" type="button" data-toggle="modal"
-                                                data-target="#editModal-{{$game->id}}"><i class="fas fa-edit"></i></button>
-                                        @include('admin.game.crud.editGame')
+                                                data-target="#editModal-{{$quiz->id}}"><i class="fas fa-edit"></i></button>
+                                        @include('admin.quiz.crud.editQuiz')
                                     </div>
                                     <div class="col-md-6">
-                                        <form action="{{route('games.destroy', $game->id)}}" method="POST">
+                                        <form action="{{route('quiz.destroy', $quiz->id)}}" method="POST">
                                             {{ csrf_field() }}
                                             <input name="_method" type="hidden" value="DELETE">
-                                            <button class="btn btn-danger btn-circle" title="Delete Game" type="submit"><i class="fas fa-trash"></i></button>
+                                            <button class="btn btn-danger btn-circle" title="Delete Quiz" type="submit"><i class="fas fa-trash"></i></button>
                                         </form>
                                     </div>
                                 </div>

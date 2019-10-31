@@ -72,7 +72,12 @@ class HistoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $his = History::findOrFail($id);
+        $his->update([
+            'resultA' => $request->resultA,
+            'resultB' => $request->resultB,
+        ]);
+        return redirect()->back()->with('Success', 'Updated history #'.$id);
     }
 
     /**
@@ -83,6 +88,8 @@ class HistoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $his = History::findOrFail($id);
+        $his->delete();
+        return redirect()->back()->with('Success', 'Deleted history #'.$id);
     }
 }
