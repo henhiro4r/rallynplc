@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\PhotoPlay;
 use Illuminate\Http\Request;
 
 class PhotoPlayController extends Controller
@@ -15,7 +16,8 @@ class PhotoPlayController extends Controller
     public function index()
     {
         $pages = 'phis';
-        return view('admin.photo.history', compact('pages'));
+        $historys = PhotoPlay::all();
+        return view('admin.photo.history', compact('pages', 'historys'));
     }
 
     /**
@@ -81,6 +83,8 @@ class PhotoPlayController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ph = PhotoPlay::findOrFail($id);
+        $ph->delete();
+        return redirect()->back()->with('Success', 'History Photo #'.$id.' deleted');
     }
 }

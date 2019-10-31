@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\QuizPlay;
 use Illuminate\Http\Request;
 
 class QuizPlayController extends Controller
@@ -15,7 +16,8 @@ class QuizPlayController extends Controller
     public function index()
     {
         $pages = 'qhis';
-        return view('admin.quiz.history', compact('pages'));
+        $historys = QuizPlay::all();
+        return view('admin.quiz.history', compact('pages', 'historys'));
     }
 
     /**
@@ -70,7 +72,9 @@ class QuizPlayController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $quiz = QuizPlay::findOrFail($id);
+        $quiz->update($request->all());
+        return redirect()->back()->with('Success', 'History Quiz #'.$id.' updated');
     }
 
     /**
@@ -81,6 +85,8 @@ class QuizPlayController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $qp = QuizPlay::findOrFail($id);
+        $qp->delete();
+        return redirect()->back()->with('Success', 'History Quiz #'.$id.' deleted');
     }
 }

@@ -10,7 +10,11 @@ class QuizPlay extends Model
         'quiz_id','user_id','try','is_right'
     ];
 
-    public function quizs(){
-        return $this->belongsToMany('App\Quiz');
+    public function quiz(){
+        return $this->belongsTo('App\Quiz');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 }

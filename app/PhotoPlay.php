@@ -10,7 +10,11 @@ class PhotoPlay extends Model
         'photo_id','user_id'
     ];
 
-    public function photos(){
-        return $this->belongsToMany('App\Photo');
+    public function photo(){
+        return $this->belongsTo('App\Photo');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 }

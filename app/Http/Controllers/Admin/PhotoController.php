@@ -91,7 +91,9 @@ class PhotoController extends Controller
      */
     public function show($id)
     {
-        //
+        $photo = Photo::findOrFail($id);
+        $pages = 'plist';
+        return view('admin.photo.show', compact('pages', 'photo'));
     }
 
     /**

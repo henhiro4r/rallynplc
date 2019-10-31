@@ -55,9 +55,6 @@
                                 : <b>{{$user->detail->coach_name}}</b>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <a class="btn btn-danger" href="{{ route('history.index') }}">Back</a>
-                        </div>
                 </div>
             </div>
         </div>

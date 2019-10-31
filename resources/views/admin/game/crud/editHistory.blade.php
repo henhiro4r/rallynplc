@@ -14,7 +14,7 @@
                     <input name="_method" type="hidden" value="PATCH">
                     <div class="form-group">
                         <label for="title">Game Title</label>
-                        <input type="text" name="title" class="form-control" value="{{$history->game->title}}">
+                        <p><b>{{$history->game->title}}</b></p>
                     </div>
                     <div class="form-group">
                         <label for="type">Result Team A</label>

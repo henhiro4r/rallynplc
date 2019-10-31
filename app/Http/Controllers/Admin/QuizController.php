@@ -50,7 +50,9 @@ class QuizController extends Controller
      */
     public function show($id)
     {
-        //
+        $quiz = Quiz::findOrFail($id);
+        $pages = 'qlist';
+        return view('admin.quiz.show', compact('pages', 'quiz'));
     }
 
     /**

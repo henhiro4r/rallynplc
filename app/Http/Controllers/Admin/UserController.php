@@ -115,7 +115,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        $pages = 'ghis';
+        $pages = 'upar';
         return view('admin.user.show', compact('user', 'pages'));
     }
 
