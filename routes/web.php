@@ -24,6 +24,7 @@ Route::group(['middleware' => 'admin'], function (){
     Route::post('admin/user/deactivate', 'Admin\UserController@deactivate');
     Route::get('admin/user/activate', 'Admin\UserController@activate')->name('user.activate');
     Route::post('admin/user/activate', 'Admin\UserController@activate');
+    Route::post('admin/newsletter/send', 'Admin\MailController@sendmail')->name('mail.send');
 
     Route::resource('admin/users', 'Admin\UserController');
     Route::resource('admin/games', 'Admin\GameController');
@@ -32,4 +33,5 @@ Route::group(['middleware' => 'admin'], function (){
     Route::resource('admin/historyQuiz', 'Admin\QuizPlayController');
     Route::resource('admin/photo', 'Admin\PhotoController');
     Route::resource('admin/historyPhoto', 'Admin\PhotoPlayController');
+    Route::resource('admin/mailing', 'Admin\MailController');
 });
