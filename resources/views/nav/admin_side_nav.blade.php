@@ -57,7 +57,7 @@
                 <a class="btn btn-link nav-link @if($pages=='mail' || $pages=='send') active @endif" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#mail" role="button">
                     <i class="fas fa-mail-bulk"></i><span>Blast Email</span>
                 </a>
-                <div class="collapse @if($pages=='mail' || $pages=='phis') show @endif" id="mail">
+                <div class="collapse @if($pages=='mail' || $pages=='send') show @endif" id="mail">
                     <div class="bg-white border rounded py-2 collapse-inner">
                         <a class="collapse-item @if($pages=='mail') active @endif" href="{{ route('mailing.index') }}">Recipient List</a>
                         <a class="collapse-item @if($pages=='send') active @endif" href="{{ route('mailing.create') }}">Send Email</a>
