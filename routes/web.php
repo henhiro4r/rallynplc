@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\ConfirmationEmail;
+use App\Mailing;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +15,12 @@ Auth::routes([
 ]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('mailable', function (){
+   $mail = ['subject' => 'test', 'message' => 'test message'];
+   $user = Mailing::first();
+   return new ConfirmationEmail($mail, $user);
+});
 
 Route::group(['middleware' => 'admin'], function (){
     Route::get('admin/dashboard', 'Admin\PageController@dashboard')->name('admin');

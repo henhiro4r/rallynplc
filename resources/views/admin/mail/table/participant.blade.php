@@ -20,6 +20,7 @@
                         <th>Id</th>
                         <th>Team Name</th>
                         <th>Email</th>
+                        <th>Category</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -29,6 +30,7 @@
                             <td>{{$mail->id}}</td>
                             <td>{{$mail->name}}</td>
                             <td>{{$mail->email}}</td>
+                            <td>{{$mail->cat_id == 1 ? 'Category 1' : 'Category 2'}}</td>
                             <td width="150px">
                                 <div class="row no-gutters">
                                     <div class="col-md-6">

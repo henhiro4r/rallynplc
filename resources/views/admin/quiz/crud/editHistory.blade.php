@@ -21,7 +21,7 @@
                         <p><b>{{$history->user->name}}</b></p>
                     </div>
                     <div class="form-group">
-                        <label for="title">Team Name</label>
+                        <label for="title">Chance</label>
                         <input type="number" min="0" max="3" step="1" name="try" value="{{$history->try}}" class="form-control">
                     </div>
                     <div class="form-group">

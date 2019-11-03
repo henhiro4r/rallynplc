@@ -4,9 +4,9 @@
 {{ $mail['message']  }}
 
 @component('mail::button', ['url' => ''])
-Button Text
+Confirm
 @endcomponent
 
-Thanks you,<br>
+Regards,<br>
 7th NPLC Team.
 @endcomponent

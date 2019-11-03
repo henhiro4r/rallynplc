@@ -20,6 +20,13 @@
                         <input type="text" name="email" class="form-control" placeholder="Email..." required>
                     </div>
                     <div class="form-group">
+                        <label>Category</label>
+                        <select name="cat_id" class="custom-select">
+                            <option value="1">Category 1</option>
+                            <option value="2">Category 2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <button type="submit" class="btn btn-primary">Add</button>
                     </div>
                 </form>

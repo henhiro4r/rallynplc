@@ -25,6 +25,10 @@
                         <input type="text" name="answer" class="form-control" value="{{$quiz->answer}}">
                     </div>
                     <div class="form-group">
+                        <label>Price</label>
+                        <input type="number" name="price" class="form-control" min="100" max="500" value="{{$quiz->price}}">
+                    </div>
+                    <div class="form-group">
                         <button type="submit" class="btn btn-primary">Edit Quiz</button>
                     </div>
                 </form>

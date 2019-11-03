@@ -26,7 +26,8 @@ class SendConfirmationEmail
      */
     public function handle($event)
     {
-        $tos = Mailing::all();
+        $id = $event->mail['cat_id'];
+        $tos = Mailing::all()->where('cat_id', '=', $id);
         foreach ($tos as $to){
             Mail::to($to->email)->send(new ConfirmationEmail($event->mail, $to->name));
         }

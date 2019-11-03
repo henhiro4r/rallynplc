@@ -21,6 +21,10 @@
                         <input type="text" name="email" class="form-control" value="{{ $mail->email }}">
                     </div>
                     <div class="form-group">
+                        <label>Category</label>
+                        <input type="number" max="2" min="1" value="{{ $mail->cat_id }}" class="form-control">
+                    </div>
+                    <div class="form-group">
                         <button type="submit" class="btn btn-primary">Edit</button>
                     </div>
                 </form>

@@ -20,6 +20,13 @@
                             <textarea name="message" class="form-control" rows="5" placeholder="Message..." style="resize: none;"></textarea>
                         </div>
                         <div class="form-group">
+                            <label>To Category</label>
+                            <select name="cat_id" class="custom-select">
+                                <option value="1">Category 1</option>
+                                <option value="2">Category 2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <button class="btn btn-primary" type="submit">Send Mail</button>
                             <button class="btn btn-danger" type="reset">Cancel</button>
                         </div>

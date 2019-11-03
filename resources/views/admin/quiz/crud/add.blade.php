@@ -24,6 +24,10 @@
                         <input type="text" name="answer" class="form-control" placeholder="Quiz answer..." required>
                     </div>
                     <div class="form-group">
+                        <label>Price</label>
+                        <input type="number" name="price" class="form-control" min="100" max="500" placeholder="Quiz price..." required>
+                    </div>
+                    <div class="form-group">
                         <button type="submit" class="btn btn-primary">Add Quiz</button>
                     </div>
                 </form>

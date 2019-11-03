@@ -21,6 +21,7 @@
                         <th>Title</th>
                         <th>Question</th>
                         <th>Answer</th>
+                        <th>Price</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -31,6 +32,7 @@
                             <td>{{ucwords($quiz->title)}}</td>
                             <td>{{$quiz->question}}</td>
                             <td>{{$quiz->answer}}</td>
+                            <td>{{$quiz->price}}</td>
                             <td width="150px">
                                 <div class="row no-gutters">
                                     <div class="col-md-6">

@@ -98,6 +98,6 @@ class MailController extends Controller
     public function sendMail(Request $request){
         $mail = $request->all();
         event(new ConfirmationEvent($mail));
-        return redirect()->back()->with('Success','An email have broadcast');
+        return redirect()->back()->with('Success','Email sent');
     }
 }
