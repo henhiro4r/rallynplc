@@ -28,9 +28,9 @@
                             <td><a href="{{route('games.show', $history->game_id)}}">{{$history->game->title}}</a></td>
                             <td>@if($history->game->type == 'S') <p class="text-success">Single</p> @else <p class="text-primary">Versus</p> @endif </td>
                             <td><a href="{{ route('users.show', $history->teamA)}}">{{$history->teamName($history->teamA)}}</a></td>
-                            <td>{{$history->resultA}}</td>
+                            <td>{{$history->resultA .' ('.$history->pointA.')'}}</td>
                             <td><a href="{{ route('users.show', $history->teamB)}}">{{$history->teamName($history->teamB)}}</a></td>
-                            <td>{{$history->resultB}}</td>
+                            <td>{{$history->resultB .' ('.$history->pointB.')'}}</td>
                             <td>@if($history->is_done == '0') <p class="text-warning">Playing</p> @else <p class="text-success">Finished</p> @endif </td>
                             <td width="150px">
                                 <div class="row no-gutters">

@@ -3,7 +3,7 @@
 
 {{ $mail['message']  }}
 
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => 'https://fusionsvisual.com'])
 Confirm
 @endcomponent
 
