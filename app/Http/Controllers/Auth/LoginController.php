@@ -51,15 +51,41 @@ class LoginController extends Controller
           'status' => 'E',
         ];
 
+        $liaison = [
+            'username' => $request->username,
+            'password' => $request->password,
+            'role_id' => 2,
+            'is_login' => '0',
+            'status' => 'E',
+        ];
+
+        $participant = [
+            'username' => $request->username,
+            'password' => $request->password,
+            'role_id' => 3,
+            'is_login' => '0',
+            'status' => 'E',
+        ];
+
         if (Auth::attempt($admin)){
-            $acc = User::findOrFail(Auth::id());
-            $acc->update([
-               'is_login' => '1',
-               'last_login' => Carbon::now(),
-            ]);
+            $this->isLogin(Auth::id());
             return redirect()->route('admin');
+        } elseif (Auth::attempt($liaison)){
+            $this->isLogin(Auth::id());
+            return Auth::user();
+        } else if (Auth::attempt($participant)) {
+            $this->isLogin(Auth::id());
+            return Auth::user();
         }
         return redirect()->route('login');
+    }
+
+    private function isLogin(int $id){
+        $acc = User::findOrFail($id);
+        return $acc->update([
+            'is_login' => '1',
+            'last_login' => Carbon::now(),
+        ]);
     }
 
     public function logout(Request $request)

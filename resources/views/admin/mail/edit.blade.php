@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label>Category</label>
-                        <input type="number" max="2" min="1" value="{{ $mail->cat_id }}" class="form-control">
+                        <input type="number" name="cat_id" max="2" min="1" value="{{ $mail->cat_id }}" class="form-control">
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Edit</button>

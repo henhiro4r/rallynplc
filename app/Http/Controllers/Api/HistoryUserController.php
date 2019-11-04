@@ -23,7 +23,7 @@ class HistoryUserController extends Controller
      */
     public function index(User $user)
     {
-        $his = History::where('teamA', '=', $user->id)->orWhere('teamB', '=' , $user->id)->where('is_done', '=' , '1')->get();;
+        $his = History::where('teamA', $user->id)->orWhere('teamB', $user->id)->where('is_done', '1')->get();;
         $response['history'] = array();
         foreach ($his as $hi){
             if ($hi->teamA == $user->id){

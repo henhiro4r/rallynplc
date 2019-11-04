@@ -1,6 +1,8 @@
 <?php
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +15,15 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//
+Route::middleware('auth:api')->get('/user', function () {
+    return User::find(Auth::id());
 });
 
-Route::group(['prefix'=>'user'], function (){
-    Route::apiResource('{user}/history-user','Api\HistoryUserController')->only('index');
-});
+//Route::group(['middleware' => 'auth:api'], function (){
+//    Route::apiResource('history/{id}','Api\HistoryUserController')->only('index');
+//});
+
+//Route::group(['prefix' => 'user'],function() {
+//    Route::apiResource('{user}/history-user','Api\HistoryUserController')->only('index');
+//});
