@@ -24,6 +24,6 @@ Route::middleware('auth:api')->get('/user', function () {
 //    Route::apiResource('history/{id}','Api\HistoryUserController')->only('index');
 //});
 
-//Route::group(['prefix' => 'user'],function() {
-//    Route::apiResource('{user}/history-user','Api\HistoryUserController')->only('index');
-//});
+Route::group(['prefix' => 'user'],function() {
+    Route::apiResource('{user}/history-user','Api\HistoryUserController')->only('index');
+});

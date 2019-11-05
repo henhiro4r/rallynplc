@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->bigInteger('detail_id')->index()->nullable();
             $table->bigInteger('role_id')->index()->unsigned();
-            $table->string('point_now')->nullable();
-            $table->string('point_used')->nullable();
+            $table->string('point_now', 6)->default('0');
+            $table->string('point_used', 6)->default('0');
             $table->enum('is_login', ['0','1'])->default('0');
             $table->enum('status', ['D','E'])->default('E');
             $table->timestamp('last_login')->nullable();
