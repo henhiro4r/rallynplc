@@ -11,7 +11,9 @@
                         <th>Id</th>
                         <th>Photo Id</th>
                         <th>Photo Title</th>
+                        <th>Photo Value</th>
                         <th>Team Name</th>
+                        <th>TIme Scan</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -21,7 +23,9 @@
                             <td>{{$history->id}}</td>
                             <td>{{$history->photo_id}}</td>
                             <td><a href="{{route('photo.show', $history->photo_id)}}">{{$history->photo->title}}</a></td>
+                            <td>{{$history->photo->value}}</td>
                             <td><a href="{{ route('users.show', $history->user_id)}}">{{$history->user->name}}</a></td>
+                            <td>{{$history->created_at}}</td>
                             <td width="150px">
                                 <div class="row no-gutters">
                                     <div class="col-md-12">
