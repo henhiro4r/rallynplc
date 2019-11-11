@@ -4,7 +4,21 @@
         @include('inc.alert')
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h1 class="h4 mb-0 font-weight-bold text-primary">Participant</h1>
+                <div class="row no-gutters">
+                    <div class="col-md-11">
+                        <h1 class="h4 mb-0 font-weight-bold text-primary" style="margin-top: 0.2em;">Participant</h1>
+                    </div>
+                    <div class="col-md-1 d-flex flex-md-wrap">
+                        <form action="{{route('userAll.deactivate')}}" method="POST" style="margin-right: 1em; margin-left: 1.5em;">
+                            {{ csrf_field() }}
+                            <button class="btn btn-warning btn-circle" title="Deactivate User" type="submit"><i class="fas fa-exclamation-triangle"></i></button>
+                        </form>
+                        <form action="{{route('userAll.activate')}}" method="POST">
+                            {{ csrf_field() }}
+                            <button class="btn btn-success btn-circle" title="Activate User" type="submit"><i class="fas fa-check"></i></button>
+                        </form>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

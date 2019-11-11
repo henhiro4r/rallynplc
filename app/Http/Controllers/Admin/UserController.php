@@ -210,4 +210,24 @@ class UserController extends Controller
         $user->update(['is_login' => '0', 'status' => 'E']);
         return redirect()->back()->with('Success', 'User Activated');
     }
+
+    public function deactivateAll()
+    {
+        $users = User::all()->where('role_id', '=','3');
+        foreach ($users as $user){
+            $user->status = 'D';
+            $user->save();
+        }
+        return redirect()->back()->with('Success', 'User Deactivated');
+    }
+
+    public function activateAll()
+    {
+        $users = User::all()->where('role_id', '=','3');
+        foreach ($users as $user){
+            $user->status = 'E';
+            $user->save();
+        }
+        return redirect()->back()->with('Success', 'User Activated');
+    }
 }

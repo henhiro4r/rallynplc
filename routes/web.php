@@ -34,6 +34,11 @@ Route::group(['middleware' => 'admin'], function (){
     Route::post('admin/user/activate', 'Admin\UserController@activate');
     Route::post('admin/newsletter/send', 'Admin\MailController@sendmail')->name('mail.send');
 
+    Route::get('admin/user/deactivate-all', 'Admin\UserController@deactivateAll')->name('userAll.deactivate');
+    Route::post('admin/user/deactivate-all', 'Admin\UserController@deactivateAll');
+    Route::get('admin/user/activate-all', 'Admin\UserController@activateAll')->name('userAll.activate');
+    Route::post('admin/user/activate-all', 'Admin\UserController@activateAll');
+
     Route::resource('admin/users', 'Admin\UserController');
     Route::resource('admin/games', 'Admin\GameController');
     Route::resource('admin/history', 'Admin\HistoryController');
