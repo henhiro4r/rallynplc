@@ -130,7 +130,7 @@ class GameController extends Controller
             $tmp = str_replace(" ", "-",$request->title);
             $type = $file->getClientOriginalExtension();
             $name = $tmp."_qrCode.".$type;
-            $file->move('images/games', $name);
+            $file->move('images/game', $name);
             $input['qr_code'] = $name;
         }
         $game->update($input);

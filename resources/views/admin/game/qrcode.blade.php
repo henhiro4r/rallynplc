@@ -10,7 +10,7 @@
             <!-- Modal body -->
             <div class="modal-body" style="text-align: left;">
                 <div class="text-center py-2">
-                    <img src="{{asset('images/games/'.$game->qr_code)}}" height="300" class="img-profile" id="qrcode">
+                    <img src="{{asset('images/game/'.$game->qr_code)}}" height="300" class="img-profile" id="qrcode">
                 </div>
             </div>
             <!-- Modal footer -->
