@@ -17,11 +17,11 @@
                     </div>
                     <div class="form-group">
                         <label>Question</label>
-                        <input type="text" name="question" class="form-control" placeholder="Quiz question..." required>
+                        <textarea class="form-control" name="question" style="resize: none" placeholder="Quiz question..." required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Answer</label>
-                        <input type="text" name="answer" class="form-control" placeholder="Quiz answer..." required>
+                        <textarea class="form-control" name="answer" style="resize: none" placeholder="Quiz answer..." required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Price</label>

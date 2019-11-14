@@ -15,7 +15,6 @@
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Username</th>
-                                <th>Role</th>
                                 <th>PIC of Game</th>
                                 <th>Login Status</th>
                                 <th>Last Login</th>
@@ -30,7 +29,6 @@
                                     <td>{{$user->id}}</td>
                                     <td><a href="{{route('users.edit', $user->id)}}">{{ucwords($user->name)}}</a></td>
                                     <td>{{$user->username}}</td>
-                                    <td>{{ucwords($user->role->name)}}</td>
                                     <td>{{$user->detail_id ? ucwords($user->detail->other) : '-'}}</td>
                                     <td>@if($user->is_login == '1') <p class="text-success">Logged in</p> @else <p>Logged Out</p> @endif </td>
                                     <td>{{$user->last_login ? $user->last_login : '-' }}</td>

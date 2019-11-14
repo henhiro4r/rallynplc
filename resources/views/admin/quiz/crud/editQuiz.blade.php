@@ -18,11 +18,11 @@
                     </div>
                     <div class="form-group">
                         <label>Question</label>
-                        <input type="text" name="question" class="form-control" value="{{$quiz->question}}">
+                        <textarea class="form-control" name="question" style="resize: none">{{$quiz->question}}</textarea>
                     </div>
                     <div class="form-group">
                         <label>Answer</label>
-                        <input type="text" name="answer" class="form-control" value="{{$quiz->answer}}">
+                        <textarea class="form-control" name="answer" style="resize: none">{{$quiz->answer}}</textarea>
                     </div>
                     <div class="form-group">
                         <label>Price</label>
